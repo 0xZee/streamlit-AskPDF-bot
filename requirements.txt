@@ -1,0 +1,10 @@
+#os
+#tempfile
+streamlit
+langchain_groq
+langchain
+langchain-community
+langchain-nomic
+#huggingface-hub
+chromadb
+pypdf
