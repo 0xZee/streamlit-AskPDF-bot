@@ -9,7 +9,7 @@ from langchain.memory.chat_message_histories import StreamlitChatMessageHistory
 from langchain_nomic.embeddings import NomicEmbeddings
 from langchain.callbacks.base import BaseCallbackHandler
 from langchain.chains import ConversationalRetrievalChain
-#from langchain.vectorstores import DocArrayInMemorySearch
+from langchain.vectorstores import DocArrayInMemorySearch
 from langchain.vectorstores import Chroma
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
@@ -43,7 +43,8 @@ def configure_retriever(uploaded_files):
     embeddings = NomicEmbeddings(model="nomic-embed-text-v1.5", nomic_api_key=st.secrets['NOMIC_API'])
     #vectordb = DocArrayInMemorySearch.from_documents(splits, embeddings)
     #vectordb = Chroma.from_documents(splits, embeddings, persist_directory="vectorstore") # TO PERSIST VECTORSTORE IN LOCAL FOLDER
-    vectordb = Chroma.from_documents(splits, embeddings) # WITHOUT PERSISTING VECTORSTORE IN LOCAL FOLDER
+    #vectordb = Chroma.from_documents(splits, embeddings) # WITHOUT PERSISTING VECTORSTORE IN LOCAL FOLDER
+    vectordb = DocArrayInMemorySearch.from_documents(splits, embeddings) # VECTORSTORE DOCARRAY
 
     # Define retriever
     retriever = vectordb.as_retriever(search_type="mmr", search_kwargs={"k": 5, "fetch_k": 4})
