@@ -42,7 +42,8 @@ def configure_retriever(uploaded_files):
     #embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
     embeddings = NomicEmbeddings(model="nomic-embed-text-v1.5", nomic_api_key=st.secrets['NOMIC_API'])
     #vectordb = DocArrayInMemorySearch.from_documents(splits, embeddings)
-    vectordb = Chroma.from_documents(splits, embeddings, persist_directory="vectorstore")
+    #vectordb = Chroma.from_documents(splits, embeddings, persist_directory="vectorstore") # TO PERSIST VECTORSTORE IN LOCAL FOLDER
+    vectordb = Chroma.from_documents(splits, embeddings) # WITHOUT PERSISTING VECTORSTORE IN LOCAL FOLDER
 
     # Define retriever
     retriever = vectordb.as_retriever(search_type="mmr", search_kwargs={"k": 5, "fetch_k": 4})
