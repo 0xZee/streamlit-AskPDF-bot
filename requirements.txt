@@ -7,4 +7,5 @@ langchain-community
 langchain-nomic
 #huggingface-hub
 chromadb
+docarray
 pypdf
