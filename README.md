@@ -1,4 +1,4 @@
-# "Ask your PDF" Streamlit ChatBot
+# `Ask your PDF` Streamlit ChatBot
 # RAG Application with LangChain, Nomic embeddings, Chroma VectorStore and Groq Llama3
 
 This repository contains an example of a Retrieval Augmented Generation (RAG) application built using langchain, Nomic embeddings, and Groq Llama3. The RAG system combines retrieval-based methods with language models to generate coherent and contextually relevant responses based on uploaded PDF
