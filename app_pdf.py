@@ -136,4 +136,4 @@ if user_query := st.chat_input(placeholder="Ask me anything about your PDF"):
     with st.chat_message("assistant"):
         retrieval_handler = PrintRetrievalHandler(st.container())
         stream_handler = StreamHandler(st.empty())
-        response = qa_chain.run(user_query, callbacks=[retrieval_handler, stream_handler])
+        st.markdown(qa_chain.run(user_query, callbacks=[retrieval_handler, stream_handler]))
